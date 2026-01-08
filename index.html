@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>Velora</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f8cdda, #1d2b64);
-      color: white;
-      text-align: center;
-    }
-    .box {
-      margin-top: 40vh;
-      transform: translateY(-50%);
-    }
-    h1 {
-      font-size: 48px;
-    }
-    p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Velora - Login</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.box {
+  width: 320px;
+  background: #000;
+  border-radius: 25px;
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  color: #ffc0d9;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login {
+  background: #ffc0d9;
+  color: black;
+}
+
+.signup {
+  background: #1a1a1a;
+  color: white;
+}
+
+.guest {
+  background: transparent;
+  color: #ffc0d9;
+}
+</style>
 </head>
+
 <body>
-  <div class="box">
-    <h1>Velora 💖</h1>
-    <p>قريبًا… شيء جميل جدًا</p>
-    <button>ابدأ</button>
-  </div>
+
+<div class="box">
+  <h1>Velora</h1>
+  <p>سجّلي دخولك وخلّي الذكاء ينسّقك ✨</p>
+
+  <button class="login">تسجيل دخول</button>
+  <button class="signup">إنشاء حساب</button>
+  <button class="guest">الدخول كضيف</button>
+</div>
+
 </body>
 </html>
