@@ -46,6 +46,17 @@ button {
 }
 
 .login {
+  <script>
+  document.querySelector('.login').onclick = () => {
+    localStorage.setItem("role", "user");
+    window.location.href = "bot.html";
+  };
+
+  document.querySelector('.guest').onclick = () => {
+    localStorage.setItem("role", "guest");
+    window.location.href = "bot.html";
+  };
+</script>
   background: #ffc0d9;
   color: black;
 }
