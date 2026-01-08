@@ -47,6 +47,86 @@ button {
 
 .login {
   background: #ffc0d9;
+  <script>
+// ====== زر ضيف ======
+document.getElementById("guestBtn")?.addEventListener("click", () => {
+  localStorage.setItem("role", "guest");
+  localStorage.setItem("bot_limit", 6);
+  localStorage.setItem("group_send", "false");
+  localStorage.setItem("group_limit", 0);
+  localStorage.setItem("style_limit", 0);
+
+  window.location.href = "chat.html";
+});
+
+// ====== زر تسجيل دخول (عادي) ======
+document.getElementById("loginBtn")?.addEventListener("click", () => {
+  localStorage.setItem("role", "user");
+  localStorage.setItem("bot_limit", 21);
+  localStorage.setItem("group_send", "true");
+  localStorage.setItem("group_limit", 6);
+  localStorage.setItem("style_limit", 1);
+
+  window.location.href = "chat.html";
+});
+
+// ====== زر تسجيل عبر قوقل ======
+function onGoogleLoginSuccess() {
+  localStorage.setItem("role", "user");
+  localStorage.setItem("bot_limit", 21);
+  localStorage.setItem("group_send", "true");
+  localStorage.setItem("group_limit", 6);
+  localStorage.setItem("style_limit", 1);
+
+  window.location.href = "chat.html";
+}
+
+// ====== داخل صفحة الشات ======
+function canSendGroup() {
+  return localStorage.getItem("group_send") === "true";
+}
+
+function sendBotMessage() {
+  let limit = Number(localStorage.getItem("bot_limit"));
+
+  if (limit <= 0) {
+    alert("خلص عدد رسائل البوت 💔");
+    return;
+  }
+
+  localStorage.setItem("bot_limit", limit - 1);
+  // هنا كود إرسال رسالة البوت
+}
+
+function sendGroupMessage() {
+  if (!canSendGroup()) {
+    alert("القروب قراءة فقط للضيوف 👀");
+    return;
+  }
+
+  let limit = Number(localStorage.getItem("group_limit"));
+
+  if (limit <= 0) {
+    alert("خلص عدد رسائل القروب 🛑");
+    return;
+  }
+
+  localStorage.setItem("group_limit", limit - 1);
+  // هنا كود إرسال رسالة القروب
+}
+
+function styleClothes() {
+  let limit = Number(localStorage.getItem("style_limit"));
+
+  if (limit <= 0) {
+    alert("خلص تنسيق اليوم ✋");
+    return;
+  }
+
+  localStorage.setItem("style_limit", limit - 1);
+  // هنا كود الذكاء الاصطناعي للتنسيق
+}
+</script>
   color: black;
 }
 
