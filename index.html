@@ -1,2 +1,52 @@
-<link rel="stylesheet" href="assets/styles.css">
-<script src="assets/main.js" defer></script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Velora</title>
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ff9ecf,#d38cff);
+  font-family:Arial;
+  text-align:center;
+}
+.box{
+  margin-top:120px;
+}
+h1{
+  color:white;
+  font-size:42px;
+  margin-bottom:30px;
+}
+button{
+  display:block;
+  width:80%;
+  max-width:300px;
+  margin:12px auto;
+  padding:14px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+}
+.login{background:#5b21b6;color:white;}
+.google{background:#2563eb;color:white;}
+.guest{background:white;color:#5b21b6;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h1>Velora</h1>
+  <button class="login" onclick="goUser()">تسجيل دخول</button>
+  <button class="google" onclick="goUser()">تسجيل عبر Google</button>
+  <button class="guest" onclick="goGuest()">الدخول كضيف</button>
+</div>
+
+<script>
+function goUser(){location.href="chat.html?type=user";}
+function goGuest(){location.href="chat.html?type=guest";}
+</script>
+
+</body>
+</html>
