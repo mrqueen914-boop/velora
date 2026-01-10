@@ -1,2 +1,123 @@
-<link rel="stylesheet" href="assets/styles.css">
-<script src="assets/main.js" defer></script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Velora – ضيف</title>
+<style>
+body{
+  margin:0;
+  background:#0f1020;
+  color:white;
+  font-family:Arial;
+}
+header{
+  background:#be185d;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+}
+#rules{
+  background:#1c1d3a;
+  padding:12px;
+  font-size:14px;
+  text-align:center;
+}
+#chat{
+  height:300px;
+  margin:10px;
+  padding:10px;
+  background:#1a1b33;
+  border-radius:10px;
+  overflow-y:auto;
+}
+.msg-user{background:#312e81;padding:6px;margin:6px;border-radius:6px;}
+.msg-bot{background:#4c1d95;padding:6px;margin:6px;border-radius:6px;}
+.input{
+  display:flex;
+  margin:10px;
+}
+input{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+button{
+  margin-left:8px;
+  padding:10px 14px;
+  border:none;
+  border-radius:8px;
+  background:#be185d;
+  color:white;
+}
+.lock{
+  text-align:center;
+  margin-top:15px;
+  color:#fca5a5;
+}
+</style>
+</head>
+<body>
+
+<header>Velora – ضيف</header>
+
+<div id="rules">
+  👤 وضع الضيف<br>
+  • 6 رسائل فقط للبوت<br>
+  • القروب مشاهدة فقط ❌ إرسال<br>
+  • لا تنسيق ملابس<br>
+  🔓 سجّل عشان تفتح المميزات
+</div>
+
+<div id="chat"></div>
+
+<div class="input">
+  <input id="text" placeholder="اكتب رسالتك">
+  <button onclick="send()">إرسال</button>
+</div>
+
+<div class="lock">
+  🔒 القروب والتنظيم مقفلة للضيف
+</div>
+
+<script>
+let botLimit = 6;
+let botCount = 0;
+const chat = document.getElementById("chat");
+
+function send(){
+  const t=document.getElementById("text");
+  if(!t.value) return;
+
+  if(botCount >= botLimit){
+    addBot("❌ انتهت رسائلك كضيف، سجّل الآن");
+    return;
+  }
+
+  addUser(t.value);
+  addBot("🤖 أهلًا! هذه رسالة تجريبية للضيف");
+  botCount++;
+  t.value="";
+}
+
+function addUser(msg){
+  const p=document.createElement("div");
+  p.className="msg-user";
+  p.textContent="أنت: "+msg;
+  chat.appendChild(p);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+function addBot(msg){
+  const p=document.createElement("div");
+  p.className="msg-bot";
+  p.textContent=msg;
+  chat.appendChild(p);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+addBot("مرحبًا بك كضيف في Velora 🌸");
+</script>
+
+</body>
+</html>
