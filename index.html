@@ -2,50 +2,48 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Velora</title>
+<title>Thanks</title>
 <style>
 body{
   margin:0;
-  background:linear-gradient(135deg,#ff9ecf,#d38cff);
-  font-family:Arial;
-  text-align:center;
+  font-family: Arial;
+  background:#f7c6e6;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 .box{
-  margin-top:120px;
-}
-h1{
-  color:white;
-  font-size:42px;
-  margin-bottom:30px;
+  width:300px;
+  text-align:center;
 }
 button{
-  display:block;
-  width:80%;
-  max-width:300px;
-  margin:12px auto;
-  padding:14px;
-  font-size:18px;
+  width:100%;
+  padding:12px;
+  margin:8px 0;
   border:none;
-  border-radius:30px;
+  border-radius:20px;
+  font-size:16px;
   cursor:pointer;
 }
-.login{background:#5b21b6;color:white;}
-.google{background:#2563eb;color:white;}
-.guest{background:white;color:#5b21b6;font-weight:bold;}
+.google{background:#fff;}
+.login{background:#ccc;}
+.guest{background:#000;color:#fff;}
 </style>
 </head>
 <body>
 
 <div class="box">
-  <h1>Velora</h1>
-  <button class="login" onclick="goUser()">تسجيل دخول</button>
-  <button class="google" onclick="goUser()">تسجيل عبر Google</button>
-  <button class="guest" onclick="goGuest()">الدخول كضيف</button>
+  <h1>Thanks</h1>
+  <button class="google" onclick="go()">المتابعة باستخدام حساب Google</button>
+  <button class="login" onclick="go()">تسجيل</button>
+  <button class="guest" onclick="go()">ضيف</button>
 </div>
 
 <script>
-function goUser(){location.href="chat.html?type=user";}
-function goGuest(){location.href="chat.html?type=guest";}
+function go(){
+  window.location.href="chat.html";
+}
 </script>
 
 </body>
